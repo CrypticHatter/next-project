@@ -5,7 +5,7 @@ type Props = {
 };
 
 interface todo {
-  _id: string;
+  id: string;
   content: string;
 }
 

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-type Props = { id: number };
+type Props = { id: string };
 
 const ActionBtns = (props: Props) => {
   const { id } = props;
