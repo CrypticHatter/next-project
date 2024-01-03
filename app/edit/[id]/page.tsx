@@ -1,7 +1,5 @@
 import UpdateForm from "@/components/UpdateForm";
 
-type Params = { id: string };
-
 const getTodoById = async (id: string) => {
   try {
     const res = await fetch(`http://localhost:3000/api/todo/${id}`, {
@@ -18,11 +16,9 @@ const getTodoById = async (id: string) => {
   }
 };
 
-const edit = async ({ params }: Params) => {
+export default async function edit({ params }: any) {
   const { id } = params;
   const { content } = await getTodoById(id);
 
   return <UpdateForm id={id} content={content} />;
-};
-
-export default edit;
+}
