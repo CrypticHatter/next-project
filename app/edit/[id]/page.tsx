@@ -16,7 +16,7 @@ const getTodoById = async (id: string) => {
   }
 };
 
-export default async function edit({ params }: any) {
+export default async function Edit({ params }: any) {
   const { id } = params;
   const { content } = await getTodoById(id);
 
