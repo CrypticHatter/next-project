@@ -1,5 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 
+declare module globalThis {
+  function prisma(): string;
+}
+
 const client = globalThis.prisma || new PrismaClient();
 if (process.env.NODE_ENV !== "production") globalThis.prisma = client;
 

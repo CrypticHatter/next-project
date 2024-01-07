@@ -7,6 +7,7 @@ export async function DELETE(
 ) {
   // const { searchParams } = new URL(req.url);
   const { id } = params;
+  // @ts-ignore
   await prisma.todo.delete({
     where: {
       id,
@@ -21,6 +22,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const { id } = params;
+  // @ts-ignore
   const todo = await prisma.todo.findUnique({
     where: {
       id,
@@ -40,6 +42,7 @@ export async function PUT(
   const { id } = params;
   const { newContent } = await req.json();
 
+  // @ts-ignore
   const todo = await prisma.todo.update({
     where: {
       id,
