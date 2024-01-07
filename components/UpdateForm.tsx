@@ -17,13 +17,16 @@ const UpdateForm = (props: Props) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/api/todo/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-type": "multipart/json",
-        },
-        body: JSON.stringify({ newContent }),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_AUTH_URL}api/todo/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-type": "multipart/json",
+          },
+          body: JSON.stringify({ newContent }),
+        }
+      );
 
       router.push("/");
     } catch (error) {

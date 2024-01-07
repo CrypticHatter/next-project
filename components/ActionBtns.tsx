@@ -14,9 +14,12 @@ const ActionBtns = (props: Props) => {
       const confirmed = confirm("Do you want to delete?");
 
       if (confirmed) {
-        const res = await fetch(`http://localhost:3000/api/todo/${id}`, {
-          method: "DELETE",
-        });
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_AUTH_URL}/api/todo/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
         router.refresh();
       }
     } catch (error) {
@@ -28,7 +31,7 @@ const ActionBtns = (props: Props) => {
 
   return (
     <div className="w-1/3">
-      <Link href={`/edit/${id}`} className="btn btn-sm btn-primary ml-2">
+      <Link href={`edit/${id}`} className="btn btn-sm btn-primary ml-2">
         E
       </Link>
       <button onClick={handleDelete} className="btn btn-sm btn-error ml-2">

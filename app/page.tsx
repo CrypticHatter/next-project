@@ -3,7 +3,7 @@ import TodoList from "@/components/TodoList";
 
 const getList = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/todo", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_AUTH_URL}/api/todo`, {
       method: "GET",
       cache: "no-store",
     });
@@ -14,7 +14,7 @@ const getList = async () => {
 };
 
 export default async function Home() {
-  const { list } = await getList();
+  const { list } = (await getList()) ?? null;
 
   return (
     <div className="hero min-h-screen bg-base-200">
